@@ -73,7 +73,7 @@ const SignInForm = () => {
           <FormField
             control={form.control}
             name="email"
-            render={({ field, fieldState }) => (
+            render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-neutral-600 text-sm">
                   Email Address
