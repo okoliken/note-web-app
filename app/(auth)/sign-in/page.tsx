@@ -18,24 +18,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import NoteLogo from "@/public/logo-light.svg";
 
-const SignIn = () => {
-  return (
-    <Card className="w-full max-w-[623px]">
-      <CardHeader className="flex flex-col items-center gap-4 px-0 pb-0 pt-4">
-        <Image src={NoteLogo} alt="NoteLogo" />
-        <div className="text-center">
-          <CardTitle className="text-2xl font-bold mb-[0.5rem]">
-            Welcome to Note
-          </CardTitle>
-          <p className="text-neutral-600 text-sm">Please log in to continue</p>
-        </div>
-      </CardHeader>
-      <CardContent className="mt-10">
-        <SignInForm />
-      </CardContent>
-    </Card>
-  );
-};
+
 
 const SignInForm = () => {
   const formSchema = z.object({
@@ -157,4 +140,23 @@ const GoogleIcon = () => {
   );
 };
 
-export default SignIn;
+const SignInPage = () => {
+  return (
+    <Card className="w-full max-w-[623px]">
+      <CardHeader className="flex flex-col items-center gap-4 px-0 pb-0 pt-4">
+        <Image src={NoteLogo} alt="NoteLogo" />
+        <div className="text-center">
+          <CardTitle className="text-2xl font-bold mb-[0.5rem]">
+            Welcome to Note
+          </CardTitle>
+          <p className="text-neutral-600 text-sm">Please log in to continue</p>
+        </div>
+      </CardHeader>
+      <CardContent className="mt-10">
+        <SignInForm />
+      </CardContent>
+    </Card>
+  );
+};
+
+export default SignInPage;
