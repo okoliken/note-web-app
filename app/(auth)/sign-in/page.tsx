@@ -1,6 +1,6 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {AuthCardHeader} from "@/components/auth/AuthCardHeader";
+import { Card, CardContent } from "@/components/ui/card";
+import { AuthCardHeader } from "@/components/auth/AuthCardHeader";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,9 +16,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-// import
-import Image from "next/image";
-import NoteLogo from "@/public/logo-light.svg";
 import { useState } from "react";
 
 const SignInForm = () => {
