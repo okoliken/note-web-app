@@ -1,22 +1,37 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, type, ...props }, ref) => {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  hasError?: boolean;
+  icon?: React.ReactNode;
+}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, hasError, ...props }, ref) => {
     return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-11 w-full rounded-md border border-stone-200 bg-transparent px-3 py-1 text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-stone-950 data-[invalid=true]:border-red-500 placeholder:text-sm data-[invalid=true]:ring-red-500 placeholder:text-stone-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-stone-950 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:border-stone-800 dark:file:text-stone-50 dark:placeholder:text-stone-400 dark:focus-visible:ring-stone-300",
-          className
+      <div className="relative">
+        <input
+          autoComplete="off"
+          autoCorrect="false"
+          type={type}
+          className={cn(
+            "flex h-11 w-full rounded-md border border-stone-200 bg-transparent px-3 py-1 text-base transition-colors focus-visible:ring-2 focus-visible:ring-neutral-600 focus-visible:border-neutral-900 focus-visible:ring-offset-2  placeholder:text-sm placeholder:text-stone-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:border-stone-800 dark:file:text-stone-50 dark:placeholder:text-stone-400 dark:focus-visible:ring-stone-300",
+            className,
+            hasError && "ring-1 ring-red-500 border-red-500"
+          )}
+          ref={ref}
+          {...props}
+        />
+        {props.icon && (
+            <span className="absolute right-3 top-1/2 -translate-y-1/2">
+              {props.icon}
+            </span>
         )}
-        ref={ref}
-        {...props}
-      />
-    )
+      </div>
+    );
   }
-)
-Input.displayName = "Input"
+);
+Input.displayName = "Input";
 
-export { Input }
+export { Input };

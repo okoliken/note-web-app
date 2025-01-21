@@ -1,8 +1,10 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {AuthCardHeader} from "@/components/auth/AuthCardHeader";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { Eye, EyeSlash } from "phosphor-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,10 +19,10 @@ import { Input } from "@/components/ui/input";
 // import
 import Image from "next/image";
 import NoteLogo from "@/public/logo-light.svg";
-
-
+import { useState } from "react";
 
 const SignInForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const formSchema = z.object({
     email: z.string().email({ message: "Please enter a valid email." }),
     password: z
@@ -47,7 +49,7 @@ const SignInForm = () => {
   }
 
   return (
-    <div>
+    <>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -62,7 +64,12 @@ const SignInForm = () => {
                   Email Address
                 </FormLabel>
                 <FormControl>
-                  <Input placeholder="email@example.com" {...field} />
+                  <Input
+                    hasError={!!form.formState.errors.email}
+                    type="email"
+                    placeholder="email@example.com"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -83,7 +90,26 @@ const SignInForm = () => {
                 </div>
 
                 <FormControl>
-                  <Input {...field} />
+                  <Input
+                    hasError={!!form.formState.errors.password}
+                    type={showPassword ? "text" : "password"}
+                    {...field}
+                    icon={
+                      <>
+                        {showPassword ? (
+                          <EyeSlash
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="text-neutral-500"
+                          />
+                        ) : (
+                          <Eye
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="text-neutral-500"
+                          />
+                        )}
+                      </>
+                    }
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -112,12 +138,14 @@ const SignInForm = () => {
           <div className="mt-4 flex flex-col items-center">
             <p className="text-neutral-600 text-sm">
               No account yet?{" "}
-              <span className="text-neutral-950 tracking-tighter cursor-pointer">Sign Up</span>
+              <span className="text-neutral-950 tracking-tighter cursor-pointer">
+                Sign Up
+              </span>
             </p>
           </div>
         </div>
       </Form>
-    </div>
+    </>
   );
 };
 
@@ -143,15 +171,7 @@ const GoogleIcon = () => {
 const SignInPage = () => {
   return (
     <Card className="w-full max-w-[623px]">
-      <CardHeader className="flex flex-col items-center gap-4 px-0 pb-0 pt-4">
-        <Image src={NoteLogo} alt="NoteLogo" />
-        <div className="text-center">
-          <CardTitle className="text-2xl font-bold mb-[0.5rem]">
-            Welcome to Note
-          </CardTitle>
-          <p className="text-neutral-600 text-sm">Please log in to continue</p>
-        </div>
-      </CardHeader>
+      <AuthCardHeader />
       <CardContent className="mt-10">
         <SignInForm />
       </CardContent>
