@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Eye, EyeSlash, Info } from "phosphor-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -18,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { GoogleIcon } from "@/components/auth/icons/GoogleIcon";
+import { TransitionLink } from "@/components/TransitionLink";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -87,7 +87,7 @@ const SignUpPage = () => {
                   </FormLabel>
 
                   <FormControl>
-                    <>
+                    <div>
                       <Input
                         hasError={!!form.formState.errors.password}
                         type={showPassword ? "text" : "password"}
@@ -119,7 +119,7 @@ const SignUpPage = () => {
                           </span>
                         </p>
                       </FormLabel>
-                    </>
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -148,12 +148,12 @@ const SignUpPage = () => {
             <div className="mt-4 flex flex-col items-center">
               <p className="text-neutral-600 text-sm">
                 Already have an account?{" "}
-                <Link
+                <TransitionLink
                   href="/sign-in"
                   className="text-neutral-950 tracking-tighter cursor-pointer hover:underline"
                 >
                   Login
-                </Link>
+                </TransitionLink>
               </p>
             </div>
           </div>

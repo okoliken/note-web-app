@@ -89,8 +89,12 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter);
+  font-family: var(--inter);
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
 }
 
-
+.page-transition {
+  opacity: 0;
+}
 

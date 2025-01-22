@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { TransitionLink } from "@/components/TransitionLink";
 
 const ResetPasswordPage = () => {
   const formSchema = z.object({
@@ -79,7 +79,7 @@ const ResetPasswordPage = () => {
                   </div>
 
                   <FormControl>
-                    <>
+                    <div>
                       <Input
                         hasError={!!form.formState.errors.password}
                         type={showPassword.password ? "text" : "password"}
@@ -112,7 +112,7 @@ const ResetPasswordPage = () => {
                           </span>
                         </p>
                       </FormLabel>
-                    </>
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -165,12 +165,12 @@ const ResetPasswordPage = () => {
           <div className="mt-4 flex flex-col items-center">
             <p className="text-neutral-600 text-sm">
               Remember your password?{" "}
-              <Link
+              <TransitionLink
                 href="/sign-in"
                 className="text-neutral-950 tracking-tighter cursor-pointer hover:underline"
               >
                 Sign In
-              </Link>
+              </TransitionLink>
             </p>
           </div>
         </Form>
