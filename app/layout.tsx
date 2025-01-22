@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/shared/AppSidebar"
+
+import AppLayout from "@/components/shared/AppLayout"
 import "./globals.css";
 
 const inter = Inter({
@@ -22,7 +26,9 @@ export default function RootLayout({
          <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
       </head>
       <body className={`${inter.className} antialiased`}>
-        {children}
+        <AppLayout>
+          {children}
+        </AppLayout>
       </body>
     </html>
   );

@@ -38,6 +38,16 @@ export default {
   			red: {
   				'100': '#FFDD58',
   				'500': '#FB3748'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
   		borderRadius: {
@@ -45,12 +55,12 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-      boxShadow: {
-        'neutral-400': '0px 0px 0px 4px var(--colors-neutral-400)',
-        'base-white': '0px 0px 0px 2px var(--colors-base-white)',
-        'sm-light': '0px 1px 2px 0px #0A0D1408',
-		'card': '0px 8px 12px 0px #F0F0F099'
-      }
+  		boxShadow: {
+  			'neutral-400': '0px 0px 0px 4px var(--colors-neutral-400)',
+  			'base-white': '0px 0px 0px 2px var(--colors-base-white)',
+  			'sm-light': '0px 1px 2px 0px #0A0D1408',
+  			card: '0px 8px 12px 0px #F0F0F099'
+  		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
