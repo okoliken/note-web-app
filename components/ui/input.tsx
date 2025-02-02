@@ -16,7 +16,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           autoCorrect="false"
           type={type}
           className={cn(
-            "flex h-11 w-full rounded-md border border-stone-200 bg-transparent px-3 py-1 text-base transition-colors shadow-sm-light focus-visible:ring-2 focus-visible:ring-neutral-600 focus-visible:border-neutral-900 focus-visible:ring-offset-2  placeholder:text-sm placeholder:text-stone-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:border-stone-800 dark:file:text-stone-50 dark:placeholder:text-stone-400 dark:focus-visible:ring-stone-300",
+            "flex h-11 w-full rounded-md border border-stone-200 bg-transparent px-3 py-1 text-base transition-colors shadow-sm-light focus-visible:ring-2 focus-visible:ring-base-600 focus-visible:border-base-900 focus-visible:ring-offset-2  placeholder:text-sm placeholder:text-stone-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:border-stone-800 dark:file:text-stone-50 dark:placeholder:text-stone-400 dark:focus-visible:ring-stone-300",
             className,
             hasError && "ring-1 ring-red-600 border-red-600"
           )}

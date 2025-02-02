@@ -12,7 +12,7 @@ export default {
   		colors: {
   			background: 'var(--background)',
   			foreground: 'var(--foreground)',
-  			neutral: {
+  			base: {  
   				'0': '#FFFFFF',
   				'50': '#F5F7FA',
   				'100': '#F3F5F8',

@@ -73,7 +73,7 @@ const ResetPasswordPage = () => {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center justify-between">
-                    <FormLabel className="text-neutral-600 text-sm">
+                    <FormLabel className="text-base-600 text-sm">
                       New Password
                     </FormLabel>
                   </div>
@@ -89,13 +89,13 @@ const ResetPasswordPage = () => {
                             <Info
                               size={20}
                               onClick={() => setShowPassword(prev => ({...prev, password: false}))}
-                              className="text-neutral-500 cursor-pointer"
+                              className="text-base-500 cursor-pointer"
                             />
                           ) : (
                             <Info
                               size={20}
                               onClick={() => setShowPassword(prev => ({...prev, password: true}))}
-                              className="text-neutral-500 cursor-pointer"
+                              className="text-base-500 cursor-pointer"
                             />
                           )
                         }
@@ -106,7 +106,7 @@ const ResetPasswordPage = () => {
                           <Info size={16} />
                           <span className={cn(
                             !!form.formState.errors.password && "!text-red-600",
-                            "text-neutral-600 text-xs",
+                            "text-base-600 text-xs",
                           )}>
                             At least 8 characters, 1 uppercase, 1 number
                           </span>
@@ -125,7 +125,7 @@ const ResetPasswordPage = () => {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center justify-between">
-                    <FormLabel className="text-neutral-600 text-sm">
+                    <FormLabel className="text-base-600 text-sm">
                     Confirm New Password
                     </FormLabel>
                   </div>
@@ -140,13 +140,13 @@ const ResetPasswordPage = () => {
                           <Info
                             size={20}
                             onClick={() => setShowPassword(prev => ({...prev, confirmPassword: false}))}
-                            className="text-neutral-500 cursor-pointer"
+                            className="text-base-500 cursor-pointer"
                           />
                         ) : (
                           <Info
                             size={20}
                             onClick={() => setShowPassword(prev => ({...prev, confirmPassword: true}))}
-                            className="text-neutral-500 cursor-pointer"
+                            className="text-base-500 cursor-pointer"
                           />
                         )
                       }
@@ -163,11 +163,11 @@ const ResetPasswordPage = () => {
           </form>
 
           <div className="mt-4 flex flex-col items-center">
-            <p className="text-neutral-600 text-sm">
+            <p className="text-base-600 text-sm">
               Remember your password?{" "}
               <TransitionLink
                 href="/sign-in"
-                className="text-neutral-950 tracking-tighter cursor-pointer hover:underline"
+                className="text-base-950 tracking-tighter cursor-pointer hover:underline"
               >
                 Sign In
               </TransitionLink>

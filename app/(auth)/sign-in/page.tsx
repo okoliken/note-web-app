@@ -59,7 +59,7 @@ const SignInForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-neutral-600 text-sm">
+                <FormLabel className="text-base-600 text-sm">
                   Email Address
                 </FormLabel>
                 <FormControl>
@@ -80,12 +80,12 @@ const SignInForm = () => {
             render={({ field }) => (
               <FormItem>
                 <div className="flex items-center justify-between">
-                  <FormLabel className="text-neutral-600 text-sm">
+                  <FormLabel className="text-base-600 text-sm">
                     Password
                   </FormLabel>
                   <TransitionLink
                     href="/forgot-password"
-                    className="text-xs text-neutral-600 cursor-pointer underline"
+                    className="text-xs text-base-600 cursor-pointer underline"
                   >
                     Forgot
                   </TransitionLink>
@@ -101,12 +101,12 @@ const SignInForm = () => {
                         {showPassword ? (
                           <EyeSlash
                             onClick={() => setShowPassword(!showPassword)}
-                            className="text-neutral-500"
+                            className="text-base-500"
                           />
                         ) : (
                           <Eye
                             onClick={() => setShowPassword(!showPassword)}
-                            className="text-neutral-500"
+                            className="text-base-500"
                           />
                         )}
                       </>
@@ -122,10 +122,10 @@ const SignInForm = () => {
           </Button>
         </form>
         <div className="mt-4">
-          <hr className="border-neutral-200" />
+          <hr className="border-base-200" />
 
           <div className="mt-6 flex flex-col items-center gap-4">
-            <p className="text-neutral-600 text-sm">Or log in with:</p>
+            <p className="text-base-600 text-sm">Or log in with:</p>
 
             <Button
               className="w-full h-12 flex items-center justify-center gap-x-[1.188rem]"
@@ -135,14 +135,14 @@ const SignInForm = () => {
               Google
             </Button>
           </div>
-          <hr className="border-neutral-200 mt-4" />
+          <hr className="border-base-200 mt-4" />
 
           <div className="mt-4 flex flex-col items-center">
-            <p className="text-neutral-600 text-sm">
+            <p className="text-base-600 text-sm">
               No account yet?{" "}
               <TransitionLink
                 href="/sign-up"
-                className="text-neutral-950 tracking-tighter cursor-pointer hover:underline"
+                className="text-base-950 tracking-tighter cursor-pointer hover:underline"
               >
                 Sign Up
               </TransitionLink>

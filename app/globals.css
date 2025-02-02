@@ -18,12 +18,12 @@
   --foreground: #0E121B;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #fff;
-    --foreground: #0E121B;
+    --background: #0E121B;
+    --foreground: #fff;
   }
-}
+} */
 
 
 @layer base {

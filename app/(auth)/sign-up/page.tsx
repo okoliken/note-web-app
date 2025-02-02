@@ -82,7 +82,7 @@ const SignUpPage = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-neutral-600 text-sm">
+                  <FormLabel className="text-base-600 text-sm">
                     Password
                   </FormLabel>
 
@@ -98,13 +98,13 @@ const SignUpPage = () => {
                               <EyeSlash
                                 size={20}
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="text-neutral-500"
+                                className="text-base-500"
                               />
                             ) : (
                               <Eye
                                 size={20}
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="text-neutral-500"
+                                className="text-base-500"
                               />
                             )}
                           </>
@@ -114,7 +114,7 @@ const SignUpPage = () => {
                       <FormLabel>
                         <p className="flex items-center gap-x-2 mt-[6px]">
                           <Info size={16} />
-                          <span className="text-neutral-600 text-xs">
+                          <span className="text-base-600 text-xs">
                             At least 8 characters
                           </span>
                         </p>
@@ -130,10 +130,10 @@ const SignUpPage = () => {
             </Button>
           </form>
           <div className="mt-4">
-            <hr className="border-neutral-200" />
+            <hr className="border-base-200" />
 
             <div className="mt-6 flex flex-col items-center gap-4">
-              <p className="text-neutral-600 text-sm">Or continue with:</p>
+              <p className="text-base-600 text-sm">Or continue with:</p>
 
               <Button
                 className="w-full h-12 flex items-center justify-center gap-x-[1.188rem]"
@@ -143,14 +143,14 @@ const SignUpPage = () => {
                 Google
               </Button>
             </div>
-            <hr className="border-neutral-200 mt-4" />
+            <hr className="border-base-200 mt-4" />
 
             <div className="mt-4 flex flex-col items-center">
-              <p className="text-neutral-600 text-sm">
+              <p className="text-base-600 text-sm">
                 Already have an account?{" "}
                 <TransitionLink
                   href="/sign-in"
-                  className="text-neutral-950 tracking-tighter cursor-pointer hover:underline"
+                  className="text-base-950 tracking-tighter cursor-pointer hover:underline"
                 >
                   Login
                 </TransitionLink>
