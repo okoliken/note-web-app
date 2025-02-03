@@ -1,24 +1,31 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-
+import { Search } from "lucide-react";
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   hasError?: boolean;
   icon?: React.ReactNode;
+  hasSearchIcon?: boolean;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, hasError, ...props }, ref) => {
     return (
       <div className="relative">
+        {props.hasSearchIcon && (
+          <span className="absolute left-4 top-1/2 -translate-y-1/2">
+            <Search size={20} color="#717784" />
+          </span>
+        )}
         <input
           autoComplete="off"
           autoCorrect="false"
           type={type}
           className={cn(
-            "flex h-11 w-full rounded-md border border-stone-200 bg-transparent px-3 py-1 text-base transition-colors shadow-sm-light focus-visible:ring-2 focus-visible:ring-base-600 focus-visible:border-base-900 focus-visible:ring-offset-2  placeholder:text-sm placeholder:text-stone-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:border-stone-800 dark:file:text-stone-50 dark:placeholder:text-stone-400 dark:focus-visible:ring-stone-300",
+            "flex h-11 w-full rounded-lg border border-stone-200 bg-transparent px-3 py-1 text-base transition-colors shadow-sm-light focus-visible:ring-2 focus-visible:ring-base-600 focus-visible:border-base-900 focus-visible:ring-offset-2  placeholder:text-sm placeholder:text-stone-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:border-stone-800 dark:file:text-stone-50 dark:placeholder:text-stone-400 dark:focus-visible:ring-stone-300",
             className,
-            hasError && "ring-1 ring-red-600 border-red-600"
+            hasError && "ring-1 ring-red-600 border-red-600",
+            props.hasSearchIcon && "pl-10"
           )}
           ref={ref}
           {...props}
