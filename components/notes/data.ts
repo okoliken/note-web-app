@@ -41,6 +41,24 @@ const notes: Note[] = [
         title: "Reading List",
         tags: ["Personal", "Dev"],
         date: "05 Oct 2024"
+    },
+    {
+        id: "7",
+        title: "Reading List",
+        tags: ["Personal", "Dev"],
+        date: "05 Oct 2024"
+    },
+    {
+        id: "8",
+        title: "Reading List",
+        tags: ["Personal", "Dev"],
+        date: "05 Oct 2024"
+    },
+    {
+        id: "9",
+        title: "Reading List",
+        tags: ["Personal", "Dev"],
+        date: "05 Oct 2024"
     }
 ];
 

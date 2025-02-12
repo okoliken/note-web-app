@@ -8,7 +8,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <AppSidebar />
       <main className="flex-1">
-        <AppHeader/>
+        <AppHeader />
         {children}
       </main>
     </SidebarProvider>
