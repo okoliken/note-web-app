@@ -12,6 +12,7 @@ export const CreateNote = () => {
             }),
         ],
         content: '<p></p>',
+        immediatelyRender: false,
         editorProps: {
             attributes: {
                 class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none h-full min-h-full relative',
@@ -20,7 +21,7 @@ export const CreateNote = () => {
     })
 
     return (
-        <div className="w-[588px] pt-4">
+        <div className="w-full min-w-[588px] pt-4">
             <style jsx global>{`
                 .ProseMirror p.is-editor-empty:first-child::before {
                     color: #2B303B;

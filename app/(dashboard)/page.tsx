@@ -5,15 +5,15 @@ import { CreateNoteContainer } from "@/components/notes/create/CreateNoteContain
 
 export default function Home() {
   return (
-    <div className="flex gap-y-5">
-        <SidePanel className="border-r border-gray-200">
+    <div className="flex  gap-y-5">
+        <SidePanel className="border-r border-gray-200 flex-1">
             <NoteListContainer />
         </SidePanel>
 
         <main className={'py-[20px] px-6'}>
             <CreateNoteContainer />
         </main>
-        <SidePanel className="border-l border-gray-200">
+        <SidePanel className="border-l border-gray-200 flex-1 ">
           <>
           
           </>
