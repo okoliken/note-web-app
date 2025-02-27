@@ -15,13 +15,13 @@ export const CreateNote = () => {
         immediatelyRender: false,
         editorProps: {
             attributes: {
-                class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none h-full min-h-full relative',
+                class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none h-full min-h-[540px] relative',
             },
         },
     })
 
     return (
-        <div className="w-full min-w-[588px] pt-4">
+        <div className="pt-4">
             <style jsx global>{`
                 .ProseMirror p.is-editor-empty:first-child::before {
                     color: #2B303B;
