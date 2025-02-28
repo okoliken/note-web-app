@@ -6,11 +6,11 @@ import { CreateNoteContainer } from "@/components/notes/create/CreateNoteContain
 export default function Home() {
   return (
     <div className="flex gap-y-5">
-      <SidePanel className="border-r border-gray-200 flex-1 max-w-[18.125rem]">
+      <SidePanel className="border-r border-gray-200 w-[290px] shrink-0">
         <NoteListContainer />
       </SidePanel>
 
-      <main className={"pb-[20px] px-4 xl:px-6 w-full max-w-5xl"}>
+      <main className={"flex-grow pb-[20px] px-4 xl:px-6 overflow-hidden"}>
         <CreateNoteContainer />
       </main>
     </div>

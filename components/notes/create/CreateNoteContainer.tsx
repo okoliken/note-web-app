@@ -12,31 +12,30 @@ export const CreateNoteContainer = () => {
   const isSidePanelOpen = useNoteStore((state) => state.isSidePanelOpen);
   const selectedNote = useNoteStore((state) => state.selectedNote);
   return (
-    <div className="flex w-full">
-      {(isSidePanelOpen || selectedNote )&& (
-        <div className="py-4  xl:p-4 relative flex-1">
-          <CreateNoteHeader />
-          <CreateNote />
-          <CreateNoteFooter />
-        </div>
-      )}
+    <div className="flex">
+      <div className="py-4  xl:p-4 relative max-w-[588px] w-full flex-grow">
+        <CreateNoteHeader />
+        <CreateNote />
+        <CreateNoteFooter />
+      </div>
+
       {selectedNote && (
-        <SidePanel className="border-l border-gray-200 flex-1 xl:block hidden max-w-[18.125rem]">
+        <SidePanel className="border-l border-gray-200 w-72 shrink-0 hidden xl:block">
           <div className="pl-8 pt-8 flex flex-col gap-4 h-full">
             <NoteActions
-            actions={[
-              {
-                icon: <ArchiveIcon className="w-4 h-4" />,
-                label: "Archive Note",
-                onClick: () => {},
-              },
-              {
-                icon: <TrashIcon className="w-4 h-4" />,
-                label: "Delete Note",
-                onClick: () => {},
-              },
-            ]}
-          />
+              actions={[
+                {
+                  icon: <ArchiveIcon className="w-4 h-4" />,
+                  label: "Archive Note",
+                  onClick: () => {},
+                },
+                {
+                  icon: <TrashIcon className="w-4 h-4" />,
+                  label: "Delete Note",
+                  onClick: () => {},
+                },
+              ]}
+            />
           </div>
         </SidePanel>
       )}
