@@ -14,7 +14,7 @@ interface NoteStore {
   notes: Note[];
   selectedNote: Note | null;
   addNote: (note: Omit<Note, 'id' | 'date'>) => void;
-  selectNote: (id: string) => void;
+  selectNote: (id: string | number) => void;
   updateNote: (id: string, updatedNote: Partial<Note>) => void;
   deleteNote: (id: string) => void;
   getNoteById: (id: string) => Note | undefined;

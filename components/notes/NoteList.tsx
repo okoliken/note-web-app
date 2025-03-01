@@ -1,69 +1,34 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Note } from "@/types/notes";
+"use client";
+import { Button } from "@/components/ui/button";
+import { NoteItem } from "@/components/notes/NoteItem";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import useNoteStore from "@/store/useNoteStore";
-import { cn } from "@/lib/utils";
 
-export const NoteList = ({ note }: { note: Note }) => {
-  const selectNote = useNoteStore((state) => state.selectNote);
-  const selectedNote = useNoteStore((state) => state.selectedNote);
-
+const NoteList = () => {
+  const notes = useNoteStore((state) => state.notes);
+  const toggleSidePanel = useNoteStore((state) => state.toggleSidePanel);
+  console.log(notes)
   return (
-    <Card
-      key={note.id}
-      onClick={() => selectNote(note.id)}
-      className={
-        cn(
-          "shadow-none rounded-[6px] border-none !p-2 flex flex-col gap-3 hover:bg-neutral-100 transition-all duration-300 ease-in-out cursor-pointer group relative",
-          selectedNote?.id === note.id && "bg-neutral-100"
-        )
-      }
-    >
-      <CardHeader className={"p-0"}>
-        <CardTitle
-          className={
-            "leading-[19.2px] tracking-[-0.3px] font-semibold transition-colors duration-200 "
-          }
-        >
-          {note.title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <CardDescription>
-          <div className={"flex items-center gap-1 flex-wrap"}>
-            {note.tags.map((tag, index) => (
-              <>
-                <Badge key={tag} title={tag}>
-                  {tag}
-                </Badge>
-                {index < note.tags.length - 1 && (
-                  <span className="sr-only">, </span>
-                )}
-              </>
-            ))}
-          </div>
-        </CardDescription>
-      </CardContent>
-      <CardFooter className={"p-0"}>
-        <p
-          className={"text-xs leading-[14.4px] tracking-[-0.2px] text-base-700"}
-        >
-          {new Date(note.date).toLocaleDateString("en-US", {
-            day: "numeric",
-            month: "short",
-            year: "numeric",
-          })}
-        </p>
-      </CardFooter>
-      <Separator className="visible group-hover:invisible" />
-    </Card>
+    <>
+      <div className="flex flex-col gap-4 py-5 px-4 xl:pl-[35px] xl:pr-4 bg-white">
+        <Button onClick={toggleSidePanel} className={"w-full"}>
+          + Create New Note
+        </Button>
+
+        <ScrollArea className="h-[calc(100vh-100px)]">
+          {notes.length > 0 ? (
+            notes.map((note) => <NoteItem key={note.id} note={note} />)
+          ) : (
+            <div className="flex items-center justify-center h-full bg-base-100 p-2 border border-base-200 rounded-lg">
+              <p className="text-base-950 text-sm tracking-[-0.2px]">
+                You don’t have any notes yet. Start a new note to capture your
+                thoughts and ideas.
+              </p>
+            </div>
+          )}
+        </ScrollArea>
+      </div>
+    </>
   );
 };
+export default NoteList;
