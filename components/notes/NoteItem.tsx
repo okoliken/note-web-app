@@ -21,7 +21,7 @@ export const NoteItem = ({ note }: { note: Note }) => {
     <Card
       onClick={() => selectNote(note.id)}
       className={cn(
-        "shadow-none rounded-[6px] border-none !p-2 flex flex-col gap-3 lg:hover:bg-neutral-100 transition-all duration-300 ease-in-out lg:cursor-pointer group relative",
+        "shadow-none rounded-[6px] border-none !p-2 flex flex-col gap-3 lg:hover:bg-base-100 lg:hover:dark:bg-base-800 transition-all duration-300 ease-in-out lg:cursor-pointer group relative",
         selectedNote?.id === note.id && "bg-neutral-100"
       )}
     >
@@ -39,7 +39,7 @@ export const NoteItem = ({ note }: { note: Note }) => {
           <div className={"flex items-center gap-1 flex-wrap"}>
             {note.tags.map((tag, index) => (
               <div key={tag}>
-                <Badge title={tag}>{tag}</Badge>
+                <Badge className="dark:bg-base-600" title={tag}>{tag}</Badge>
                 {index < note.tags.length - 1 && (
                   <span className="sr-only">, </span>
                 )}
@@ -50,7 +50,7 @@ export const NoteItem = ({ note }: { note: Note }) => {
       </CardContent>
       <CardFooter className={"p-0"}>
         <p
-          className={"text-xs leading-[14.4px] tracking-[-0.2px] text-base-700"}
+          className={"text-xs leading-[14.4px] tracking-[-0.2px] text-base-700 dark:text-base-300"}
         >
           {new Date(note.date).toLocaleDateString("en-US", {
             day: "numeric",

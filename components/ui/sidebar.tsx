@@ -181,7 +181,7 @@ const Sidebar = React.forwardRef<
       return (
         <div
           className={cn(
-            "flex h-full w-[--sidebar-width] flex-col bg-white dark:bg-neutral-800 text-sidebar-foreground",
+            "flex h-full w-[--sidebar-width] flex-col bg-white dark:bg-[#0E121B] text-sidebar-foreground",
             className
           )}
           ref={ref}
@@ -192,25 +192,6 @@ const Sidebar = React.forwardRef<
       )
     }
 
-    if (isMobile) {
-      return (
-        <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-          <SheetContent
-            data-sidebar="sidebar"
-            data-mobile="true"
-            className="w-[--sidebar-width] bg-white dark:bg-neutral-800 p-0 text-neutral-200 [&>button]:hidden"
-            style={
-              {
-                "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-              } as React.CSSProperties
-            }
-            side={side}
-          >
-            <div className="flex h-full w-full flex-col">{children}</div>
-          </SheetContent>
-        </Sheet>
-      )
-    }
 
     return (
       <div
@@ -241,14 +222,14 @@ const Sidebar = React.forwardRef<
             // Adjust the padding for floating and inset variants.
             variant === "floating" || variant === "inset"
               ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]"
-              : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l",
+              : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l group-data-[side=left]:border-base-200 group-data-[side=left]:dark:border-base-800",
             className
           )}
           {...props}
         >
           <div
             data-sidebar="sidebar"
-            className="flex h-full w-full flex-col bg-white dark:bg-neutral-800 group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-neutral-200 group-data-[variant=floating]:shadow"
+            className="flex h-full w-full flex-col bg-white dark:bg-[#0E121B] group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-base-200 group-data-[variant=floating]:dark:border-base-800 group-data-[variant=floating]:shadow"
           >
             {children}
           </div>
@@ -689,7 +670,7 @@ const SidebarMenuSub = React.forwardRef<
     ref={ref}
     data-sidebar="menu-sub"
     className={cn(
-      "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-base-200 px-2.5 py-0.5",
+      "mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-base-200 dark:border-base-800 px-2.5 py-0.5",
       "group-data-[collapsible=icon]:hidden",
       className
     )}

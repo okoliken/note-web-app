@@ -13,7 +13,7 @@ export const CreateNoteContainer = () => {
   const selectedNote = useNoteStore((state) => state.selectedNote);
   return (
     <div className="flex">
-      <div className="py-4  xl:p-4 relative max-w-[588px] w-full flex-grow border-r border-gray-200">
+      <div className="py-4  xl:p-4 relative max-w-[588px] w-full flex-grow border-r border-gray-200 dark:border-base-800 bg-white dark:bg-[#0E121B]">
         <CreateNoteHeader />
         <NoteEditor />
         <CreateNoteFooter />
@@ -25,14 +25,14 @@ export const CreateNoteContainer = () => {
             <NoteActions
               actions={[
                 {
-                  icon: <ArchiveIcon className="w-4 h-4" />,
+                  icon: <ArchiveIcon className="w-4 h-4 text-[#0E121B] dark:text-white" />,
                   label: "Archive Note",
                   onClick: () => {
                     console.log("Archive Note");
                   },
                 },
                 {
-                  icon: <TrashIcon className="w-4 h-4" />,
+                  icon: <TrashIcon className="w-4 h-4 text-[#0E121B] dark:text-white" />,
                   label: "Delete Note",
                   onClick: () => {},
                 },

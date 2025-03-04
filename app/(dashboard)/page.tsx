@@ -13,7 +13,7 @@ export default function Home() {
 
   if (!isDesktop) {
     return (
-      <div className="relative">
+      <div className="relative bg-white dark:bg-[#0E121B]">
         {!isNoteEditorOpen && (
           <>
             <div className="pt-5 pb-4 px-4">
@@ -37,8 +37,8 @@ export default function Home() {
   }
 
   return (
-    <div className="flex gap-y-5">
-      <SidePanel className="border-r border-gray-200 w-full md:w-[290px] shrink-0">
+    <div className="flex gap-y-5 bg-white dark:bg-[#0E121B]">
+      <SidePanel className="border-r border-gray-200 dark:border-base-800 w-full md:w-[290px] shrink-0">
         <NoteList />
       </SidePanel>
 

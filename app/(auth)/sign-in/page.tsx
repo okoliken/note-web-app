@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { GoogleIcon } from "@/components/auth/icons/GoogleIcon";
-import { TransitionLink } from "@/components/TransitionLink";
+import Link from "next/link";
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -82,12 +82,12 @@ const SignInForm = () => {
                   <FormLabel className="text-base-600 dark:text-white text-sm">
                     Password
                   </FormLabel>
-                  <TransitionLink
+                  <Link
                     href="/forgot-password"
                     className="text-xs text-base-600 dark:text-base-400 cursor-pointer underline"
                   >
                     Forgot
-                  </TransitionLink>
+                  </Link>
                 </div>
 
                 <FormControl>
@@ -121,30 +121,30 @@ const SignInForm = () => {
           </Button>
         </form>
         <div className="mt-4">
-          <hr className="border-base-200" />
+          <hr className="border-base-200 dark:border-base-800" />
 
           <div className="mt-6 flex flex-col items-center gap-4">
-            <p className="text-base-600 text-sm">Or log in with:</p>
+            <p className="text-base-600 dark:text-base-300 text-sm">Or log in with:</p>
 
             <Button
               className="w-full h-12 flex items-center justify-center gap-x-[1.188rem]"
               variant="border"
             >
-              <GoogleIcon />
+              <GoogleIcon className="text-base-950 dark:text-white" />
               Google
             </Button>
           </div>
-          <hr className="border-base-200 mt-4" />
+          <hr className="border-base-200 dark:border-base-800 mt-4" />
 
           <div className="mt-4 flex flex-col items-center">
             <p className="text-base-600 dark:text-base-300 text-sm">
               No account yet?{" "}
-              <TransitionLink
+              <Link
                 href="/sign-up"
                 className="text-base-950 dark:text-white tracking-tighter cursor-pointer hover:underline"
               >
                 Sign Up
-              </TransitionLink>
+              </Link>
             </p>
           </div>
         </div>
