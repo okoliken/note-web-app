@@ -7,11 +7,10 @@ import useNoteStore from "@/store/useNoteStore";
 const NoteList = () => {
   const notes = useNoteStore((state) => state.notes);
   const toggleSidePanel = useNoteStore((state) => state.toggleSidePanel);
-  console.log(notes)
   return (
     <>
       <div className="flex flex-col gap-4 py-5 px-4 xl:pl-[35px] xl:pr-4 bg-white">
-        <Button onClick={toggleSidePanel} className={"w-full"}>
+        <Button onClick={toggleSidePanel} className={"hidden md:block w-full"}>
           + Create New Note
         </Button>
 

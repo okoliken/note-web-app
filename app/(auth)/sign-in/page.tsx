@@ -44,7 +44,6 @@ const SignInForm = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-  
   }
 
   return (
@@ -59,7 +58,7 @@ const SignInForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-base-600 text-sm">
+                <FormLabel className="text-base-600 dark:text-white text-sm">
                   Email Address
                 </FormLabel>
                 <FormControl>
@@ -80,12 +79,12 @@ const SignInForm = () => {
             render={({ field }) => (
               <FormItem>
                 <div className="flex items-center justify-between">
-                  <FormLabel className="text-base-600 text-sm">
+                  <FormLabel className="text-base-600 dark:text-white text-sm">
                     Password
                   </FormLabel>
                   <TransitionLink
                     href="/forgot-password"
-                    className="text-xs text-base-600 cursor-pointer underline"
+                    className="text-xs text-base-600 dark:text-base-400 cursor-pointer underline"
                   >
                     Forgot
                   </TransitionLink>
@@ -138,11 +137,11 @@ const SignInForm = () => {
           <hr className="border-base-200 mt-4" />
 
           <div className="mt-4 flex flex-col items-center">
-            <p className="text-base-600 text-sm">
+            <p className="text-base-600 dark:text-base-300 text-sm">
               No account yet?{" "}
               <TransitionLink
                 href="/sign-up"
-                className="text-base-950 tracking-tighter cursor-pointer hover:underline"
+                className="text-base-950 dark:text-white tracking-tighter cursor-pointer hover:underline"
               >
                 Sign Up
               </TransitionLink>

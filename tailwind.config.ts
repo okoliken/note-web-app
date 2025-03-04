@@ -59,7 +59,8 @@ export default {
   			'neutral-400': '0px 0px 0px 4px var(--colors-neutral-400)',
   			'base-white': '0px 0px 0px 2px var(--colors-base-white)',
   			'sm-light': '0px 1px 2px 0px #0A0D1408',
-  			card: '0px 8px 12px 0px #F0F0F099'
+  			'card': '0px 8px 12px 0px #F0F0F099',
+			'bottom-nav': '0px -4px 6px 0px #F0F0F099'
   		}
   	}
   },

@@ -56,7 +56,7 @@ const ForgotPasswordForm = ({
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-base-600 text-sm">
+              <FormLabel className="text-base-600 dark:text-white text-sm">
                 Email Address
               </FormLabel>
               <FormControl>

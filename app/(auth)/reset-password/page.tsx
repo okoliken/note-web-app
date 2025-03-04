@@ -73,7 +73,7 @@ const ResetPasswordPage = () => {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center justify-between">
-                    <FormLabel className="text-base-600 text-sm">
+                    <FormLabel className="text-base-600 dark:text-white text-sm">
                       New Password
                     </FormLabel>
                   </div>
@@ -125,7 +125,7 @@ const ResetPasswordPage = () => {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center justify-between">
-                    <FormLabel className="text-base-600 text-sm">
+                    <FormLabel className="text-base-600 dark:text-white text-sm">
                     Confirm New Password
                     </FormLabel>
                   </div>
@@ -163,11 +163,11 @@ const ResetPasswordPage = () => {
           </form>
 
           <div className="mt-4 flex flex-col items-center">
-            <p className="text-base-600 text-sm">
+            <p className="text-base-600 dark:text-base-300 text-sm">
               Remember your password?{" "}
               <TransitionLink
                 href="/sign-in"
-                className="text-base-950 tracking-tighter cursor-pointer hover:underline"
+                className="text-base-950 dark:text-white tracking-tighter cursor-pointer hover:underline"
               >
                 Sign In
               </TransitionLink>

@@ -63,7 +63,7 @@ const SignUpPage = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-base-600 dark:text-white text-sm">Email</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -82,7 +82,7 @@ const SignUpPage = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-base-600 text-sm">
+                  <FormLabel className="text-base-600 dark:text-white text-sm">
                     Password
                   </FormLabel>
 
@@ -114,7 +114,7 @@ const SignUpPage = () => {
                       <FormLabel>
                         <p className="flex items-center gap-x-2 mt-[6px]">
                           <Info size={16} />
-                          <span className="text-base-600 text-xs">
+                          <span className="text-base-600 dark:text-base-400 text-xs">
                             At least 8 characters
                           </span>
                         </p>

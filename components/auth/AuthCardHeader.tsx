@@ -11,7 +11,7 @@ export function AuthCardHeader({
     <CardHeader className="flex flex-col items-center gap-4 px-0 pb-0 pt-4">
       <Image src={NoteLogo} alt="NoteLogo" />
       <div className="text-center">
-        <CardTitle className="text-2xl font-bold mb-[0.5rem]">
+        <CardTitle className="text-2xl font-bold mb-[0.5rem] dark:text-base-300">
           {title}
         </CardTitle>
         <p className="text-neutral-600 text-sm">{subtitle}</p>

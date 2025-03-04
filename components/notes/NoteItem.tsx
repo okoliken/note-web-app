@@ -21,7 +21,7 @@ export const NoteItem = ({ note }: { note: Note }) => {
     <Card
       onClick={() => selectNote(note.id)}
       className={cn(
-        "shadow-none rounded-[6px] border-none !p-2 flex flex-col gap-3 hover:bg-neutral-100 transition-all duration-300 ease-in-out cursor-pointer group relative",
+        "shadow-none rounded-[6px] border-none !p-2 flex flex-col gap-3 lg:hover:bg-neutral-100 transition-all duration-300 ease-in-out lg:cursor-pointer group relative",
         selectedNote?.id === note.id && "bg-neutral-100"
       )}
     >
@@ -59,7 +59,7 @@ export const NoteItem = ({ note }: { note: Note }) => {
           })}
         </p>
       </CardFooter>
-      <Separator className="visible group-hover:invisible" />
+      <Separator className="visible lg:group-hover:invisible" />
     </Card>
   );
 };
