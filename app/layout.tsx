@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { ReactScan } from "@/components/analysis/ReactScan";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,20 +18,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
-      </head>
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          themes={['light', 'dark']}
-          disableTransitionOnChange
+      <ReactScan />
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        themes={["light", "dark"]}
+        disableTransitionOnChange
+      >
+        <body
+          className={`${inter.className} antialiased bg-white dark:bg-[#0E121B]`}
         >
           {children}
-        </ThemeProvider>
-      </body>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }

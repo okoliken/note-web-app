@@ -13,6 +13,7 @@ const NoteActions = ({ actions }: NoteActionsProps) => {
     <>
       {actions.map((action) => (
         <div
+          key={action.label}
           onClick={action.onClick}
           className={cn(
             "py-3 px-4 border border-base-300 dark:border-base-600",

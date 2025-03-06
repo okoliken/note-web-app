@@ -17,7 +17,7 @@ export default function Home() {
         {!isNoteEditorOpen && (
           <>
             <div className="pt-5 pb-4 px-4">
-              <h3 className="text-2xl font-bold leading-[28.8px] tracking-[-0.5px]">
+              <h3 className="text-2xl font-bold leading-[28.8px] tracking-[-0.5px] dark:text-white">
                 All Notes
               </h3>
             </div>

@@ -21,7 +21,7 @@ export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
         duration: 0.4,
         scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
       }}
-      className={`h-[64px] w-[64px] rounded-full bg-blue-500 fixed bottom-20 right-5 flex items-center justify-center shadow-light-gray ${className}`}
+      className={`h-[64px] w-[64px] rounded-full bg-blue-500 fixed bottom-20 right-5 flex items-center justify-center shadow-light-gray dark:shadow-dark-gray ${className}`}
       onClick={onClick}
     >
       {icon}
