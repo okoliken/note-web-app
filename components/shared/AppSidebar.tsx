@@ -3,6 +3,7 @@ import { Home, Archive, Tag } from "lucide-react";
 import Image from "next/image";
 import NoteLogo from "../../public/logo-light.svg";
 import DarkNoteLogo from "../../public/logo-dark.svg";
+import { useState } from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { Separator } from "../ui/separator";
@@ -85,7 +86,7 @@ const tags = [
   },
 ];
 
-const ArrowIcon = ({ className }: { className?: string }) => {
+export const ArrowIcon = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
@@ -97,11 +98,7 @@ const ArrowIcon = ({ className }: { className?: string }) => {
     >
       <path
         d="M1 1L5 5L1 9"
-        className={cn(
-          "stroke-[#0E121B]",
-          "dark:stroke-base-200",
-          className
-        )}
+        className={cn("stroke-[#0E121B]", "dark:stroke-base-200", className)}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -112,13 +109,15 @@ const ArrowIcon = ({ className }: { className?: string }) => {
 
 export function AppSidebar() {
   const pathname = usePathname();
-  const { resolvedTheme } = useTheme();
+  const { theme } = useTheme();
+
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
     <Sidebar>
       <SidebarGroup>
         <SidebarGroupLabel>
           <Image
-            src={resolvedTheme === "light" ? NoteLogo : DarkNoteLogo}
+            src={theme === "light" ? NoteLogo : DarkNoteLogo}
             alt="NoteLogo"
           />
         </SidebarGroupLabel>
@@ -167,9 +166,13 @@ export function AppSidebar() {
 
               <Separator />
 
-              <SidebarGroupLabel className="px-0 text-base-500">Tags</SidebarGroupLabel>
+              <SidebarGroupLabel className="px-0 text-base-500">
+                Tags
+              </SidebarGroupLabel>
               {tags.map((tags, index) => (
                 <SidebarMenuItem
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                   key={index}
                   className={cn(
                     "h-10 flex items-center justify-between pr-[13px]",
@@ -190,6 +193,12 @@ export function AppSidebar() {
                       </span>
                     </a>
                   </SidebarMenuButton>
+                  <ArrowIcon
+                    className={cn(
+                      "text-[#2B303B] dark:text-base-200 transition-opacity duration-200 ease-in-out",
+                      hoveredIndex === index ? "opacity-100" : "opacity-0"
+                    )}
+                  />
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>

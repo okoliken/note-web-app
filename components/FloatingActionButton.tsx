@@ -2,6 +2,7 @@ import React from "react";
 import { PlusIcon } from "lucide-react";
 import * as motion from "motion/react-client";
 
+
 interface FloatingActionButtonProps {
   onClick: () => void;
   icon?: React.ReactNode;
@@ -14,6 +15,7 @@ export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
   className = "",
 }) => {
   return (
+   <>
     <motion.button
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -26,5 +28,6 @@ export const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
     >
       {icon}
     </motion.button>
+   </>
   );
 };
