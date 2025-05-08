@@ -109,17 +109,20 @@ export const ArrowIcon = ({ className }: { className?: string }) => {
 
 export function AppSidebar() {
   const pathname = usePathname();
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
 
+  const currentTheme = resolvedTheme || theme;
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
     <Sidebar>
       <SidebarGroup>
         <SidebarGroupLabel>
-          <Image
-            src={theme === "light" ? NoteLogo : DarkNoteLogo}
-            alt="NoteLogo"
-          />
+          {currentTheme === "light" ? (
+            <Image src={NoteLogo} alt="NoteLogoLight" />
+          ) : (
+            <Image src={DarkNoteLogo} alt="NoteLogoDark" />
+          )}
+          <span className="sr-only">{currentTheme}</span>
         </SidebarGroupLabel>
       </SidebarGroup>
       <SidebarContent>

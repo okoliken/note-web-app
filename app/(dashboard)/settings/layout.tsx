@@ -36,10 +36,10 @@ export default function RootLayout({
                   className={cn(
                     "flex items-center justify-between p-2 text-sm h-9 rounded-[6px]",
                     "hover:bg-base-100 dark:hover:bg-base-800",
-                    pathname === "/" && "bg-base-100 dark:bg-base-800"
+                    pathname === "/settings/font-theme" && "bg-base-100 dark:bg-base-800"
                   )}
                 >
-                  <Link className="flex items-center gap-x-[11.77px]" href="/">
+                  <Link className="flex items-center gap-x-[11.77px]" href="/settings/font-theme">
                     <IconFont />
                     Font Theme
                   </Link>
