@@ -25,7 +25,7 @@ export const NoteEditor = () => {
       editorProps: {
         attributes: {
           class:
-            "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none h-full min-h-[540px] relative dark:text-white",
+            "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none h-full min-h-[540px] relative text-base-800 dark:text-white",
         },
       },
     },
@@ -36,7 +36,7 @@ export const NoteEditor = () => {
     <div className="pt-4">
       <style jsx global>{`
         .ProseMirror p.is-editor-empty:first-child::before {
-          color: #2b303b;
+          color: #2b303b !important;
           content: attr(data-placeholder);
           float: left;
           height: 0;
@@ -45,7 +45,7 @@ export const NoteEditor = () => {
         }
         @media (prefers-color-scheme: dark) {
           .ProseMirror p.is-editor-empty:first-child::before {
-            color: #F3F5F8;
+            color: #ffffff !important;
           }
         }
       `}</style>

@@ -17,10 +17,6 @@ export default function Settings() {
     setSelectedTheme(theme || "system");
   }, [theme]);
 
-  const handleThemeSelection = (value: string) => {
-    if (value) setSelectedTheme(value);
-  };
-
   const applyChanges = () => {
     if (selectedTheme) {
       setTheme(selectedTheme);
