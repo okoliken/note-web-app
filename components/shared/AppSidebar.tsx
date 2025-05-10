@@ -18,6 +18,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 // Menu items.
 const items = [
@@ -143,7 +144,7 @@ export function AppSidebar() {
                   key={item.title}
                 >
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon
                         size={20}
                         className={cn(
@@ -155,7 +156,7 @@ export function AppSidebar() {
                       <span className="text-base-950 dark:text-base-200 font-medium letter-[-2px]">
                         {item.title}
                       </span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                   <ArrowIcon
                     className={cn(
@@ -186,7 +187,7 @@ export function AppSidebar() {
                   )}
                 >
                   <SidebarMenuButton asChild>
-                    <a href={tags.url}>
+                    <Link href={tags.url}>
                       <tags.icon
                         size={20}
                         className={cn("text-[#2B303B] dark:text-base-200")}
@@ -194,7 +195,7 @@ export function AppSidebar() {
                       <span className="text-base-950 dark:text-base-200 font-medium letter-[-2px]">
                         {tags.title}
                       </span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                   <ArrowIcon
                     className={cn(

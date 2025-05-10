@@ -4,8 +4,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
 
-export const NoteEditor = () => {
-
+export default function NoteEditor() {
   const extensions = useMemo(
     () => [
       StarterKit,
@@ -16,12 +15,11 @@ export const NoteEditor = () => {
     []
   );
 
-
   const editor = useEditor(
     {
       extensions,
       content: "<p></p>",
-      immediatelyRender: false,
+      immediatelyRender: true,
       editorProps: {
         attributes: {
           class:
@@ -30,26 +28,30 @@ export const NoteEditor = () => {
       },
     },
     []
-  ); 
+  );
 
   return (
-    <div className="pt-4">
+    <div className="pt-4 w-full">
       <style jsx global>{`
-        .ProseMirror p.is-editor-empty:first-child::before {
+        html.light .ProseMirror p.is-editor-empty:first-child::before,
+        html:not(.dark) .ProseMirror p.is-editor-empty:first-child::before {
           color: #2b303b !important;
+        }
+
+        html.dark .ProseMirror p.is-editor-empty:first-child::before {
+          color: #ffffff !important;
+        }
+
+        .ProseMirror p.is-editor-empty:first-child::before {
           content: attr(data-placeholder);
           float: left;
           height: 0;
           font-size: 14px;
           pointer-events: none;
-        }
-        @media (prefers-color-scheme: dark) {
-          .ProseMirror p.is-editor-empty:first-child::before {
-            color: #ffffff !important;
-          }
+          opacity: 0.6;
         }
       `}</style>
-      <EditorContent editor={editor} />
+      <EditorContent editor={editor}  className="w-full" />
     </div>
   );
-};
+}

@@ -1,18 +1,22 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { NoteItem } from "@/components/notes/NoteItem";
+import { NoteItem } from "./NoteItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import useNoteStore from "@/store/useNoteStore";
 
-const NoteList = () => {
+
+const NoteList = ({ isArchived }: {isArchived?: boolean}) => {
   const notes = useNoteStore((state) => state.notes);
-  const toggleSidePanel = useNoteStore((state) => state.toggleSidePanel);
+  const toggleSidePanel = useNoteStore((state) => state.toggleSidePanel);  
+
   return (
     <>
       <div className="flex flex-col gap-4 py-5 px-4 xl:pl-[35px] xl:pr-4 bg-white dark:bg-[#0E121B]">
         <Button onClick={toggleSidePanel} className={"hidden md:block w-full"}>
           + Create New Note
         </Button>
+
+        {isArchived && <ArichivedBanner />}
 
         <ScrollArea className="h-[calc(100vh-100px)]">
           {notes.length > 0 ? (
@@ -30,4 +34,12 @@ const NoteList = () => {
     </>
   );
 };
+
+const ArichivedBanner = () => {
+  return (
+    <p className="text-sm tracking-tight">
+      All your archived notes are stored here. You can restore or delete them anytime.
+    </p>
+  )
+}
 export default NoteList;

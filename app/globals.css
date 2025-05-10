@@ -14,8 +14,8 @@
 } */
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #0E121B;
+  --background: #ffffff;
+  --foreground: #0e121b;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -24,7 +24,6 @@
     --foreground: #fff;
   }
 } */
-
 
 @layer base {
   :root {
@@ -101,7 +100,6 @@
   }
 }
 
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -113,4 +111,3 @@ body {
 .page-transition {
   opacity: 0;
 }
-
