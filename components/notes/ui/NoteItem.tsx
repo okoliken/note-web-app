@@ -39,7 +39,9 @@ export const NoteItem = ({ note }: { note: Note }) => {
           <div className={"flex items-center gap-1 flex-wrap"}>
             {note.tags.map((tag, index) => (
               <div key={tag}>
-                <Badge className="dark:bg-base-600" title={tag}>{tag}</Badge>
+                <Badge className="dark:bg-base-600" title={tag}>
+                  {tag}
+                </Badge>
                 {index < note.tags.length - 1 && (
                   <span className="sr-only">, </span>
                 )}
@@ -50,7 +52,9 @@ export const NoteItem = ({ note }: { note: Note }) => {
       </CardContent>
       <CardFooter className={"p-0"}>
         <p
-          className={"text-xs leading-[14.4px] tracking-[-0.2px] text-base-700 dark:text-base-300"}
+          className={
+            "text-xs leading-[14.4px] tracking-[-0.2px] text-base-700 dark:text-base-300"
+          }
         >
           {new Date(note.date).toLocaleDateString("en-US", {
             day: "numeric",
@@ -59,7 +63,12 @@ export const NoteItem = ({ note }: { note: Note }) => {
           })}
         </p>
       </CardFooter>
-      <Separator className="visible lg:group-hover:invisible" />
+      <Separator
+        className={cn(
+          "visible lg:group-hover:invisible",
+          selectedNote?.id === note.id && "invisible"
+        )}
+      />
     </Card>
   );
 };

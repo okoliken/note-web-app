@@ -6,7 +6,6 @@ import NoteLogo from "../../public/logo-light.svg";
 import DarkNoteLogo from "../../public/logo-dark.svg";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import { useCallback } from "react";
 import Link from "next/link";
 
 export const AppHeader = () => {

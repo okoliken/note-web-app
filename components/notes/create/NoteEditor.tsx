@@ -1,10 +1,13 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
+import useNoteStore from "@/store/useNoteStore";
 
 export default function NoteEditor() {
+  const selectedNote = useNoteStore((state) => state.selectedNote);
+  
   const extensions = useMemo(
     () => [
       StarterKit,
@@ -18,7 +21,7 @@ export default function NoteEditor() {
   const editor = useEditor(
     {
       extensions,
-      content: "<p></p>",
+      content: selectedNote?.description || "<p></p>",
       immediatelyRender: true,
       editorProps: {
         attributes: {
@@ -27,8 +30,15 @@ export default function NoteEditor() {
         },
       },
     },
-    []
+    [selectedNote?.id] // Recreate editor when selected note changes
   );
+
+  // Update editor content when selected note changes
+  useEffect(() => {
+    if (editor && selectedNote) {
+      editor.commands.setContent(selectedNote.description || "<p></p>");
+    }
+  }, [editor, selectedNote]);
 
   return (
     <div className="pt-4 w-full">
@@ -48,10 +58,11 @@ export default function NoteEditor() {
           height: 0;
           font-size: 14px;
           pointer-events: none;
-          opacity: 0.6;
+          line-height: 130%;
+          letter-spacing: -0.2px;
         }
       `}</style>
-      <EditorContent editor={editor}  className="w-full" />
+      <EditorContent editor={editor} />
     </div>
   );
 }
