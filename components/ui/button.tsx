@@ -36,7 +36,6 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   isLoading?: boolean;
-  loadingText?: string;
   spinner?: React.ReactNode;
 }
 
@@ -48,7 +47,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       asChild = false,
       isLoading = false,
-      loadingText,
       spinner,
       children,
       disabled,
