@@ -11,7 +11,7 @@ export default function Home() {
       selectDefaultNote(noteList[0].id)
     }
 
-  }, [noteList])
+  }, [noteList, selectDefaultNote])
 
   return (
     <>
