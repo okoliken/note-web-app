@@ -81,7 +81,7 @@ const SignUpPage = () => {
             <FormField
               control={form.control}
               name="password"
-              render={({ field, formState }) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-base-600 dark:text-white text-sm">
                     Password
