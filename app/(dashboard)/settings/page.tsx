@@ -7,12 +7,10 @@ import { useEffect, useState } from "react";
 
 export default function Settings() {
   const { theme, setTheme } = useTheme();
-  const [_, setCurrentTheme] = useState("");
   const [selectedTheme, setSelectedTheme] = useState("");
 
   // Handle initial theme sync after component mounts
   useEffect(() => {
-    setCurrentTheme(theme || "system");
     setSelectedTheme(theme || "system");
   }, [theme]);
 
@@ -23,7 +21,6 @@ export default function Settings() {
   const applyChanges = () => {
     if (selectedTheme) {
       setTheme(selectedTheme);
-      setCurrentTheme(selectedTheme);
     }
   };
 
