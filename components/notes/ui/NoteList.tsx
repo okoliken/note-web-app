@@ -45,7 +45,7 @@ const NoteList = () => {
             <div className="flex items-center justify-center h-full bg-base-100 dark:bg-base-800 text-base-950 p-2 border border-base-200 dark:border-base-700 rounded-lg dark:text-white">
               {!isArchived ? (
                 <p className="text-base-950 dark:text-white text-sm tracking-[-0.2px]">
-                  You don't have any notes yet. Start a new note to capture your
+                  You don&apos;t have any notes yet. Start a new note to capture your
                   thoughts and ideas.
                 </p>
               ) : (

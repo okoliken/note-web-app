@@ -30,10 +30,7 @@ export default function Settings() {
         <p className="text-sm">Choose your font theme:</p>
       </div>
 
-      <ToggleGroup
-        type="single"
-        className="w-full max-w-[528px] mt-[31px]"
-      >
+      <ToggleGroup type="single" className="w-full max-w-[528px] mt-[31px]">
         <ToggleGroupItem
           value="sans-serif"
           aria-label="Sans-serif font"
@@ -136,7 +133,7 @@ export default function Settings() {
               <div className="flex items-start flex-col gap-1.5">
                 <h3>Monospace</h3>
                 <p className="font-normal text-xs">
-                  Adapts to your device's theme
+                  Adapts to your device&apos;s theme
                 </p>
               </div>
             </div>

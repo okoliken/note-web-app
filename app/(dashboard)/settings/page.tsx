@@ -91,7 +91,7 @@ export default function Settings() {
               <div className="flex items-start flex-col gap-1.5">
                 <h3>System</h3>
                 <p className="font-normal text-xs">
-                  Adapts to your device's theme
+                  Adapts to your device&apos;s theme
                 </p>
               </div>
             </div>
