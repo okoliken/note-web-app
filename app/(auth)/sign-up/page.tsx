@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { GoogleIcon } from "@/components/auth/icons/GoogleIcon";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -80,7 +81,7 @@ const SignUpPage = () => {
             <FormField
               control={form.control}
               name="password"
-              render={({ field }) => (
+              render={({ field, formState }) => (
                 <FormItem>
                   <FormLabel className="text-base-600 dark:text-white text-sm">
                     Password
@@ -114,7 +115,10 @@ const SignUpPage = () => {
                       <FormLabel>
                         <p className="flex items-center gap-x-2 mt-[6px]">
                           <Info size={16} />
-                          <span className="text-base-600 dark:text-base-400 text-xs">
+                          <span className={cn([
+                            'text-base-600 dark:text-base-400 text-xs',
+                            form.formState.errors.password ? 'text-red-500' : ''
+                          ])}>
                             At least 8 characters
                           </span>
                         </p>

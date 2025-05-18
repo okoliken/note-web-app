@@ -4,16 +4,32 @@ import { NoteItem } from "./NoteItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import useNoteStore from "@/store/useNoteStore";
 import { useNotes } from "@/contexts/NotesContext";
+import { Note } from "@/types/notes";
 
 const NoteList = () => {
   const { isArchived } = useNotes();
   const notes = useNoteStore((state) => state.notes);
-  const toggleSidePanel = useNoteStore((state) => state.toggleSidePanel);  
+  const toggleSidePanel = useNoteStore((state) => state.toggleSidePanel); 
+  const selectNote = useNoteStore((state) => state.selectNote);
+  const addNote = useNoteStore((state) => state.addNote);
+
+  const createUntitledNote = () => {
+    const newNote: Note = {
+      title: "Untitled Note",
+      description: "",
+      date: null,
+      id: Math.random().toString(36).substring(2, 15),
+      tags: [],
+    };
+    toggleSidePanel()
+    addNote(newNote);
+    selectNote(newNote.id);
+  }; 
 
   return (
     <>
       <div className="flex flex-col gap-4 py-5 px-4 xl:pl-[35px] xl:pr-4 bg-white dark:bg-[#0E121B]">
-        <Button onClick={toggleSidePanel} className={"hidden md:block w-full"}>
+        <Button onClick={createUntitledNote} className={"hidden md:block w-full"}>
           + Create New Note
         </Button>
 

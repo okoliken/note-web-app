@@ -22,11 +22,11 @@ export default function NoteEditor() {
     {
       extensions,
       content: selectedNote?.description || "<p></p>",
-      immediatelyRender: true,
+      immediatelyRender: false,
       editorProps: {
         attributes: {
           class:
-            "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none h-full min-h-[540px] relative text-base-800 dark:text-white",
+            "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none h-full min-h-[540px] relative text-base-800 dark:text-white text-sm",
         },
       },
     },
@@ -46,17 +46,18 @@ export default function NoteEditor() {
         html.light .ProseMirror p.is-editor-empty:first-child::before,
         html:not(.dark) .ProseMirror p.is-editor-empty:first-child::before {
           color: #2b303b !important;
+          font-size: 14px !important;
         }
 
         html.dark .ProseMirror p.is-editor-empty:first-child::before {
           color: #ffffff !important;
+          font-size: 14px !important;
         }
 
         .ProseMirror p.is-editor-empty:first-child::before {
           content: attr(data-placeholder);
           float: left;
           height: 0;
-          font-size: 14px;
           pointer-events: none;
           line-height: 130%;
           letter-spacing: -0.2px;

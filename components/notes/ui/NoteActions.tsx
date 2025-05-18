@@ -40,7 +40,7 @@ const NoteActions = ({ actions }: NoteActionsProps) => {
             >
               <div className="flex items-center gap-2">
                 <action.icon className="w-4 h-4 text-[#0E121B] dark:text-white" />
-                <h2 className="text-sm font-medium">{action.label}</h2>
+                <h2 className="text-sm font-medium dark:text-white">{action.label}</h2>
               </div>
             </div>
           </AlertDialogTrigger>
@@ -49,7 +49,7 @@ const NoteActions = ({ actions }: NoteActionsProps) => {
               <div className="flex gap-4 p-5">
                 <div>
                   <div className="bg-base-100 w-10 h-10 flex items-center justify-center rounded-lg">
-                    <action.icon className="w-5 h-5 text-base-950 dark:text-white" />
+                    <action.icon className="w-5 h-5 text-base-950" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -61,8 +61,7 @@ const NoteActions = ({ actions }: NoteActionsProps) => {
                 </div>
               </div>
             </AlertDialogHeader>
-            <Separator />
-            <AlertDialogFooter className="flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-x-4 py-4 px-5">
+            <AlertDialogFooter className="flex flex-col-reverse sm:flex-row sm:justify-end sm:gap-x-4 py-4 px-5 border-t dark:border-base-600">
               <AlertDialogCancel className="mt-2 sm:mt-0">
                 Cancel
               </AlertDialogCancel>

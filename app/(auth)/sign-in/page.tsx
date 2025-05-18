@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Eye, EyeSlash } from "phosphor-react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/navigation';
 import {
   Form,
   FormControl,
@@ -17,7 +18,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { GoogleIcon } from "@/components/auth/icons/GoogleIcon";
+import useAuth from "@/services/auth/use-auth";
 import Link from "next/link";
+import { useQueryClient } from "@tanstack/react-query";
+
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -34,6 +38,12 @@ const SignInForm = () => {
       }),
   });
 
+  const { signIn } = useAuth();
+  const router = useRouter();
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, isPending } = signIn;
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,8 +52,21 @@ const SignInForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    await mutateAsync({
+      email: values.email,
+      password: values.password,
+    })
+      .then((data) => {
+        queryClient.setQueryData(['user'], data);
+        router.push('/');  
+      })
+      .catch((error) => {
+        form.setError("email", {
+          type: "manual",
+          message: error.message,
+        });
+      });
   }
 
   return (
@@ -86,7 +109,7 @@ const SignInForm = () => {
                     href="/forgot-password"
                     className="text-xs text-base-600 dark:text-base-400 cursor-pointer underline"
                   >
-                    Forgot
+                    Forgot Password
                   </Link>
                 </div>
 
@@ -116,7 +139,13 @@ const SignInForm = () => {
               </FormItem>
             )}
           />
-          <Button className="w-full" variant="default" type="submit">
+          <Button
+            className="w-full"
+            disabled={isPending}
+            isLoading={isPending}
+            variant="default"
+            type="submit"
+          >
             Login
           </Button>
         </form>
@@ -124,7 +153,9 @@ const SignInForm = () => {
           <hr className="border-base-200 dark:border-base-800" />
 
           <div className="mt-6 flex flex-col items-center gap-4">
-            <p className="text-base-600 dark:text-base-300 text-sm">Or log in with:</p>
+            <p className="text-base-600 dark:text-base-300 text-sm">
+              Or log in with:
+            </p>
 
             <Button
               className="w-full h-12 flex items-center justify-center gap-x-[1.188rem]"

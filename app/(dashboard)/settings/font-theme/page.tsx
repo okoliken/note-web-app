@@ -1,5 +1,4 @@
 "use client";
-import { IconDark, IconLight, IconSystem } from "@/components/icons";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
