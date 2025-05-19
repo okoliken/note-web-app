@@ -3,7 +3,6 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-// import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function Settings() {
   const { theme, setTheme } = useTheme();
