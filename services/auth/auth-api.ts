@@ -9,7 +9,6 @@ export interface UserAccount {
   export interface SignUpParams {
     email: string;
     password: string;
-    name: string;
   }
   
   export interface SignInParams {
@@ -29,8 +28,8 @@ export interface UserAccount {
   
   export const authApi = {
     // Create a new user account
-    async signUp({ email, password, name }: SignUpParams): Promise<UserAccount> {
-      await account.create(ID.unique(), email, password, name);
+    async signUp({ email, password }: SignUpParams): Promise<UserAccount> {
+      await account.create(ID.unique(), email, password);
       await account.createEmailPasswordSession(email, password);
       return account.get();
     },

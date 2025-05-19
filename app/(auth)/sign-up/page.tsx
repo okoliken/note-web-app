@@ -14,11 +14,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { GoogleIcon } from "@/components/auth/icons/GoogleIcon";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import useAuth from "@/services/auth/use-auth";
+import { useQueryClient } from "@tanstack/react-query";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -35,6 +38,12 @@ const SignUpPage = () => {
       }),
   });
 
+  const { signUp } = useAuth();
+  const router = useRouter();
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, isPending } = signUp;
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,8 +52,22 @@ const SignUpPage = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    await mutateAsync({
+      email: values.email,
+      password: values.password,
+    })
+      .then((data) => {
+
+        queryClient.setQueryData(["user"], data);
+        router.push("/");
+      })
+      .catch((error) => {
+        form.setError("email", {
+          type: "manual",
+          message: error.message,
+        });
+      });
   }
 
   return (
@@ -64,7 +87,9 @@ const SignUpPage = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-base-600 dark:text-white text-sm">Email</FormLabel>
+                  <FormLabel className="text-base-600 dark:text-white text-sm">
+                    Email
+                  </FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -115,10 +140,14 @@ const SignUpPage = () => {
                       <FormLabel>
                         <p className="flex items-center gap-x-2 mt-[6px]">
                           <Info size={16} />
-                          <span className={cn([
-                            'text-base-600 dark:text-base-400 text-xs',
-                            form.formState.errors.password ? 'text-red-500' : ''
-                          ])}>
+                          <span
+                            className={cn([
+                              "text-base-600 dark:text-base-400 text-xs",
+                              form.formState.errors.password
+                                ? "text-red-500"
+                                : "",
+                            ])}
+                          >
                             At least 8 characters
                           </span>
                         </p>
@@ -129,7 +158,13 @@ const SignUpPage = () => {
                 </FormItem>
               )}
             />
-            <Button className="w-full" variant="default" type="submit">
+            <Button
+              className="w-full"
+              disabled={isPending}
+              isLoading={isPending}
+              variant="default"
+              type="submit"
+            >
               Sign up
             </Button>
           </form>
@@ -137,7 +172,9 @@ const SignUpPage = () => {
             <hr className="border-base-200 dark:border-base-800" />
 
             <div className="mt-6 flex flex-col items-center gap-4">
-              <p className="text-base-600 dark:text-base-300 text-sm">Or continue with:</p>
+              <p className="text-base-600 dark:text-base-300 text-sm">
+                Or continue with:
+              </p>
 
               <Button
                 className="w-full h-12 flex items-center justify-center gap-x-[1.188rem]"

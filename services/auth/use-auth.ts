@@ -14,23 +14,12 @@ export default function useAuth() {
 
   // Sign up mutation
   const signUp = useMutation({
-    mutationFn: authApi.signUp,
-    onSuccess: (data) => {
-      queryClient.setQueryData(['user'], data);
-      router.push('/');
-    },
+    mutationFn: authApi.signUp
   });
 
   // Sign in mutation
   const signIn = useMutation({
     mutationFn: authApi.signIn,
-    onSuccess: (data) => {
-      queryClient.setQueryData(['user'], data);
-      router.push('/');  
-    },
-    onError: (error) => {
-     return error.message
-    }
   });
 
   // Sign out mutation
@@ -38,6 +27,7 @@ export default function useAuth() {
     mutationFn: authApi.signOut,
     onSuccess: () => {
       queryClient.setQueryData(['user'], null);
+      router.push('/sign-in')
     },
   });
 
